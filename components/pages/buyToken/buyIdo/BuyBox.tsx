@@ -66,7 +66,7 @@ const BuyBox = () => {
   const [totalBuyAmount, setTotalBuyAmount] = useState(0)
   const tokenRef = useRef<HTMLDivElement>(null)
 
-  const tokenPrice = 0.01
+  const tokenPrice = 0.015
   const minmumBuy = 25
   const maxmumBuy = 10000
 
