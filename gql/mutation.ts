@@ -34,7 +34,8 @@ export const REGISTER = gql`
 export const LOGIN = gql`
   mutation Signin($input: SigninInput!) {
     signIn(signinInput: $input) {
-      message
+      accessToken
+      refreshToken
     }
   }
 `
@@ -42,7 +43,8 @@ export const LOGIN = gql`
 export const LOGIN_WITH_GOOGLE = gql`
   mutation signInWithGoogle($input: String!) {
     signInWithGoogle(credential: $input) {
-      message
+      accessToken
+      refreshToken
     }
   }
 `

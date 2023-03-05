@@ -56,7 +56,6 @@ export const config = {
   matcher: [
     "/user/dashboard",
     "/user/buy-token",
-    "/user/buy-token",
     "/user/balance",
     "/user/airdrop",
     "/user/wallets",

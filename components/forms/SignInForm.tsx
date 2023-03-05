@@ -1,5 +1,6 @@
 import {LOGIN} from "@/gql/mutation"
 import {useMutation} from "@apollo/client"
+import Cookies from "js-cookie"
 import {useTheme} from "next-themes"
 import useTranslation from "next-translate/useTranslation"
 import Link from "next/link"
@@ -31,7 +32,7 @@ export default function SignInForm({loading, setLoading}: SignInFormProps) {
     shouldFocusError: true,
   })
 
-  const [Login, {loading: loginLoading, error, data, client}] =
+  const [Login, {loading: loginLoading, error, data: loginData, client}] =
     useMutation(LOGIN)
 
   const onSubmit = async (data: any) => {
@@ -46,6 +47,15 @@ export default function SignInForm({loading, setLoading}: SignInFormProps) {
           },
         },
       })
+        .then((res) => {
+          const accessToken = res.data.signIn.accessToken
+          const refreshToken = res.data.signIn.refreshToken
+          Cookies.set("_at", accessToken)
+          Cookies.set("_rt", refreshToken)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
 
       client.resetStore()
 

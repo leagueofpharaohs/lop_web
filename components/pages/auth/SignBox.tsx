@@ -10,6 +10,7 @@ import {toast} from "react-toastify"
 import {useTheme} from "next-themes"
 import {LOGIN_WITH_GOOGLE} from "@/gql/mutation"
 import {useMutation} from "@apollo/client"
+import Cookies from "js-cookie"
 
 interface SignBoxProps {
   children: React.ReactNode
@@ -49,6 +50,15 @@ const SignBox = ({
           input: credentialResponse.credential,
         },
       })
+        .then((res) => {
+          const accessToken = res.data.signInWithGoogle.accessToken
+          const refreshToken = res.data.signInWithGoogle.refreshToken
+          Cookies.set("_at", accessToken)
+          Cookies.set("_rt", refreshToken)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
 
       client.resetStore()
 
