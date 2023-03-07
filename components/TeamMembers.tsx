@@ -78,21 +78,21 @@ const TeamMembers = () => {
         },
       ],
     },
-    // {
-    //   id: 5,
-    //   character: ahmed,
-    //   possion: t("charactorPossion7"),
-    //   jobTitle: t("characterJob7"),
-    //   name: t("characterName7"),
-    //   Links: [
-    //     {
-    //       id: 1,
-    //       socialMedia: "Linkedin",
-    //       link: "https://www.linkedin.com/in/ahmed-ragab-67b203174",
-    //       socialIcon: FaLinkedin,
-    //     },
-    //   ],
-    // },
+    {
+      id: 5,
+      character: ahmed,
+      possion: t("charactorPossion7"),
+      jobTitle: t("characterJob7"),
+      name: t("characterName7"),
+      Links: [
+        {
+          id: 1,
+          socialMedia: "Linkedin",
+          link: "https://www.linkedin.com/in/ahmed-ragab-67b203174",
+          socialIcon: FaLinkedin,
+        },
+      ],
+    },
   ]
   return (
     <div>
