@@ -46,19 +46,6 @@ export default function SignInForm({loading, setLoading}: SignInFormProps) {
           },
         },
       })
-        .then((res) => {
-          const accessToken = res.data.signIn.accessToken
-          const refreshToken = res.data.signIn.refreshToken
-          Cookies.set("_at", accessToken, {
-            secure: true,
-          })
-          Cookies.set("_rt", refreshToken, {
-            secure: true,
-          })
-        })
-        .catch((err) => {
-          console.log(err)
-        })
 
       client.resetStore()
 
