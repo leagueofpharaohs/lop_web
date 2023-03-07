@@ -37,7 +37,7 @@ const BuyTable = ({tab, userData, userLoading}: any) => {
 
   return (
     <div className={` ${tableName === tab ? "block" : "hidden"}`}>
-      {!userLoading && buyTokenData && (
+      {!userLoading && buyTokenData.length > 0 && (
         <Table
           tbData={buyTokenData}
           gridTemplateColumns={`repeat(${
@@ -45,7 +45,7 @@ const BuyTable = ({tab, userData, userLoading}: any) => {
           }, minmax(0, 1fr))`}
         />
       )}
-      {!userLoading && !buyTokenData && <EmptyTable />}
+      {!userLoading && buyTokenData.length === 0 && <EmptyTable />}
     </div>
   )
 }
