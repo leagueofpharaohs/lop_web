@@ -103,7 +103,7 @@ const History = () => {
           )}
         </div>
       </div>
-      <BuyTable tab={tab} userData={userData} userLoading={userLoading} />
+      <BuyTable tab={tab} />
     </div>
   )
 }

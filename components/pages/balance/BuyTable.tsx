@@ -3,10 +3,11 @@ import Table from "@/components/table/Table"
 import {GET_USER_BY_ID} from "@/gql/query"
 import {kFormatter} from "@/utils/numberFormat"
 import {useQuery} from "@apollo/client"
-import {useRouter} from "next/router"
 
-const BuyTable = ({tab, userData, userLoading}: any) => {
+const BuyTable = ({tab}: any) => {
   const tableName = "buy"
+
+  const {data: userData, loading: userLoading} = useQuery(GET_USER_BY_ID)
 
   const buyTokenData = userData?.getUserById.balance.buy.buyToken.map(
     (item: any, index: number) => {
