@@ -54,8 +54,8 @@ export async function middleware(req: any, res: any) {
 
 export const config = {
   matcher: [
-    "/user/dashboard",
     "/user/buy-token",
+    "/user/dashboard",
     "/user/balance",
     "/user/airdrop",
     "/user/wallets",
