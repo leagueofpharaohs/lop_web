@@ -50,14 +50,10 @@ export default function SignInForm({loading, setLoading}: SignInFormProps) {
           const accessToken = res.data.signIn.accessToken
           const refreshToken = res.data.signIn.refreshToken
           Cookies.set("_at", accessToken, {
-            httpOnly: true,
             secure: true,
-            expires: (1 / 60) * 15,
           })
           Cookies.set("_rt", refreshToken, {
-            httpOnly: true,
             secure: true,
-            expires: 3,
           })
         })
         .catch((err) => {

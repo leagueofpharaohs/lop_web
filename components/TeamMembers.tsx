@@ -22,7 +22,7 @@ const TeamMembers = () => {
         {
           id: 2,
           socialMedia: "Linkedin",
-          link: "https://www.linkedin.com/in/ahmed-mazen-31b237176/",
+          link: "https://www.linkedin.com/in/mazen-alhabeby-527a61268/",
           socialIcon: FaLinkedin,
         },
       ],
