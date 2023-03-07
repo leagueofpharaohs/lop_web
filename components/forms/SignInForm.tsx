@@ -51,11 +51,9 @@ export default function SignInForm({loading, setLoading}: SignInFormProps) {
           const refreshToken = res.data.signIn.refreshToken
           Cookies.set("_at", accessToken, {
             secure: true,
-            httpOnly: true,
           })
           Cookies.set("_rt", refreshToken, {
             secure: true,
-            httpOnly: true,
           })
         })
         .catch((err) => {
