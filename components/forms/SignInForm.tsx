@@ -5,7 +5,6 @@ import {useTheme} from "next-themes"
 import useTranslation from "next-translate/useTranslation"
 import Link from "next/link"
 import {useRouter} from "next/navigation"
-import {useEffect, useState} from "react"
 import {useForm} from "react-hook-form"
 import {toast} from "react-toastify"
 import Input from "../Input"
@@ -47,6 +46,23 @@ export default function SignInForm({loading, setLoading}: SignInFormProps) {
           },
         },
       })
+        .then((res) => {
+          const accessToken = res.data.signIn.accessToken
+          const refreshToken = res.data.signIn.refreshToken
+          Cookies.set("_at", accessToken, {
+            httpOnly: true,
+            secure: true,
+            expires: (1 / 60) * 15,
+          })
+          Cookies.set("_rt", refreshToken, {
+            httpOnly: true,
+            secure: true,
+            expires: 3,
+          })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
 
       client.resetStore()
 
