@@ -7,6 +7,19 @@ const link = createHttpLink({
   credentials: "include",
 })
 
+const authLink = setContext((_, {headers}) => {
+  const accessToken = Cookies.get("_at")
+  const refreshToken = Cookies.get("_rt")
+
+  return {
+    headers: {
+      ...headers,
+
+      cookie: [`_rt=${refreshToken}`, `_at=${accessToken}`],
+    },
+  }
+})
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link,
