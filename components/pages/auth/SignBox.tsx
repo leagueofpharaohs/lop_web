@@ -49,16 +49,13 @@ const SignBox = ({
         variables: {
           input: credentialResponse.credential,
         },
+      }).then((res) => {
+        const accessToken = res.data.signIn.accessToken
+        const refreshToken = res.data.signIn.refreshToken
+        Cookies.set("_at", accessToken)
+        Cookies.set("_rt", refreshToken)
       })
-        .then((res) => {
-          const accessToken = res.data.signIn.accessToken
-          const refreshToken = res.data.signIn.refreshToken
-          Cookies.set("_at", accessToken)
-          Cookies.set("_rt", refreshToken)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+
       client.resetStore()
 
       toast.success("login success", {
