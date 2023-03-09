@@ -40,7 +40,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       if (payload) {
         return {
           redirect: {
-            destination: "/user/dashboard",
+            destination: "/user/buy-token",
             permanent: false,
           },
         }
