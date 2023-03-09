@@ -3,7 +3,7 @@ import maz from "@/assets/images/team/mz.png"
 import bill from "@/assets/images/team/bil.png"
 import asad from "@/assets/images/team/asd.png"
 import daved from "@/assets/images/team/dv.png"
-import ahmed from "@/assets/images/team/ahmed.png"
+import ahmed from "@/assets/images/team/ah.png"
 import useTranslation from "next-translate/useTranslation"
 import Image from "next/image"
 import Link from "next/link"
@@ -103,7 +103,7 @@ const TeamMembers = () => {
               return (
                 <div
                   key={obj.id}
-                  className="m-8 rounded-2xl px-4 py-6 shadow-lg border-t-2 border-l-2 border-slate-100 dark:border-slate-600/30"
+                  className="m-8 rounded-2xl px-4 py-6 shadow-lg border-t-2 border-l-2 border-slate-100 dark:border-slate-600/30 max-w-[226px]"
                 >
                   <Image
                     src={obj.character}
