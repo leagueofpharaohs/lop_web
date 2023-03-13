@@ -50,8 +50,8 @@ const SignBox = ({
           input: credentialResponse.credential,
         },
       }).then((res) => {
-        const accessToken = res.data.signIn.accessToken
-        const refreshToken = res.data.signIn.refreshToken
+        const accessToken = res.data.signInWithGoogle.accessToken
+        const refreshToken = res.data.signInWithGoogle.refreshToken
         Cookies.set("_at", accessToken)
         Cookies.set("_rt", refreshToken)
       })
