@@ -161,6 +161,11 @@ const BuyBox = () => {
           balanceId: userData.getUserById.balance.id,
         },
       },
+      refetchQueries: [
+        {
+          query: GET_USER_BY_ID,
+        },
+      ],
     })
   }
 
