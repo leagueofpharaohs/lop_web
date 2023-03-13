@@ -4,7 +4,7 @@ import Divider from "@/components/Divider"
 import {GoogleLogin} from "@react-oauth/google"
 import {ImSpinner9} from "react-icons/im"
 import Link from "next/link"
-import React from "react"
+import React, {useEffect} from "react"
 import {useRouter} from "next/router"
 import {toast} from "react-toastify"
 import {useTheme} from "next-themes"
@@ -39,7 +39,7 @@ const SignBox = ({
 
   const {theme} = useTheme()
 
-  const [googleAuth, {data, loading: googleLoading, client}] =
+  const [googleAuth, {data, loading: googleLoading, client, error}] =
     useMutation(LOGIN_WITH_GOOGLE)
 
   const googleSuccessAouth = async (credentialResponse: any) => {
@@ -63,15 +63,20 @@ const SignBox = ({
         theme: theme === "dark" ? "dark" : "light",
       })
       router.push("/user/buy-token")
-    } catch (error: any) {
-      console.log(error)
-      toast.error(error.massage, {
+    } catch (errors: any) {
+      console.log(errors)
+    }
+    setLoading!(false)
+  }
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error.message, {
         autoClose: 5000,
         theme: theme === "dark" ? "dark" : "light",
       })
     }
-    setLoading!(false)
-  }
+  }, [error, theme])
 
   return (
     <div className="shadow-lg dark:shadow-2xl w-max max-w-[22rem] border-t-2 border-l-2 border-t-white/20 dark:border-t-white/5 border-l-white/20 dark:border-l-white/5 rounded-lg divide-y-2 divide-slate-300 dark:divide-slate-600 min-w-[22rem]">
